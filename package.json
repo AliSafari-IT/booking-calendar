@@ -63,5 +63,22 @@
     "bugs": {
         "url": "https://github.com/AliSafari-IT/booking-calendar/issues"
     },
-    "homepage": "https://github.com/AliSafari-IT/booking-calendar#readme"
+    "homepage": "https://github.com/AliSafari-IT/booking-calendar#readme",
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/",
+        "tag": "latest",
+        "directory": "dist",
+        "main": "dist/index.js",
+        "types": "dist/index.d.ts",
+        "files": [
+            "dist"
+        ],
+        "engines": {
+            "node": ">=14"
+        },
+        "scripts": {
+            "build": "tsc && vite build"
+        }
+    }
 }
