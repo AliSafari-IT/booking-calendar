@@ -1,6 +1,6 @@
 {
     "name": "@asafarim/booking-calendar",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Google Calendar-style booking UI for FreelanceToolkit.Api",
     "type": "module",
     "main": "./dist/index.js",
@@ -48,14 +48,7 @@
     "author": "ASafariM",
     "license": "MIT",
     "private":false,
-    "config": {
-        "pnpm": {
-            "access": "public"
-        },
-        "publishConfig": {
-            "access": "public"
-        }
-    },
+    
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AliSafari-IT/booking-calendar.git"
@@ -67,18 +60,6 @@
     "publishConfig": {
         "access": "public",
         "registry": "https://registry.npmjs.org/",
-        "tag": "latest",
-        "directory": "dist",
-        "main": "dist/index.js",
-        "types": "dist/index.d.ts",
-        "files": [
-            "dist"
-        ],
-        "engines": {
-            "node": ">=14"
-        },
-        "scripts": {
-            "build": "tsc && vite build"
-        }
+        "tag": "latest"
     }
 }
