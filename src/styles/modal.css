@@ -15,9 +15,61 @@
   border-radius: var(--bc-border-radius-md);
   width: 90%;
   max-width: 600px;
-  max-height: 90vh;
+  max-height: 90dvh;
   overflow: auto;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 479px) {
+  .bc-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100dvh;
+    border-radius: var(--bc-border-radius-md) var(--bc-border-radius-md) 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .bc-modal-body {
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+  }
+
+  .bc-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bc-modal-footer {
+    flex-wrap: wrap;
+    gap: var(--asm-space-2);
+  }
+
+  .bc-modal-actions-left,
+  .bc-modal-actions-right {
+    flex-basis: 100%;
+    flex-direction: column;
+  }
+
+  .bc-modal-actions-left button,
+  .bc-modal-actions-right button {
+    width: 100%;
+  }
+
+  .bc-btn {
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .bc-modal {
+    max-width: 95%;
+  }
+
+  .bc-form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .bc-modal-header {
@@ -133,18 +185,18 @@
 }
 
 .bc-btn-primary {
-  background: var(--bc-accent);
-  color: white;
+  background: var(--asm-color-primary-500);
+  color: var(--asm-color-primary-0);
 }
 
 .bc-btn-primary:hover:not(:disabled) {
-  background: #2563eb;
+  background: var(--asm-color-primary-600);
 }
 
 .bc-btn-secondary {
   background: transparent;
   color: var(--bc-text);
-  border: 1px solid var(--bc-grid-line);
+  border: var(--asm-border-hairline) solid var(--bc-grid-line);
 }
 
 .bc-btn-secondary:hover:not(:disabled) {
@@ -152,10 +204,215 @@
 }
 
 .bc-btn-danger {
-  background: var(--bc-danger);
-  color: white;
+  background: var(--asm-color-danger-500);
+  color: var(--asm-color-primary-0);
 }
 
 .bc-btn-danger:hover:not(:disabled) {
-  background: #dc2626;
+  background: var(--asm-color-danger-600);
+}
+
+/* Jump to Date Modal */
+.bc-jump-modal {
+  max-width: 480px;
+}
+
+.bc-jump-year-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--asm-space-2);
+  margin-bottom: var(--asm-space-6);
+}
+
+.bc-jump-year-input {
+  width: 100px;
+  padding: var(--asm-space-2);
+  text-align: center;
+  background: var(--bc-bg);
+  border: var(--asm-border-hairline) solid var(--bc-grid-line);
+  border-radius: var(--bc-border-radius-sm);
+  color: var(--bc-text);
+  font-size: var(--asm-font-size-lg);
+  font-weight: var(--asm-font-weight-600);
+}
+
+.bc-jump-year-input:focus {
+  outline: none;
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-year-btn {
+  width: var(--asm-icon-size-xl);
+  height: var(--asm-icon-size-xl);
+  padding: 0;
+  background: var(--bc-bg);
+  border: var(--asm-border-hairline) solid var(--bc-grid-line);
+  border-radius: var(--bc-border-radius-sm);
+  color: var(--bc-text);
+  font-size: var(--asm-font-size-xl);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--asm-transition-fade);
+}
+
+.bc-jump-year-btn:hover {
+  background: var(--bc-grid-line);
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-year-btn:focus {
+  outline: none;
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--asm-space-2);
+  margin-bottom: var(--asm-space-6);
+}
+
+.bc-jump-month-btn {
+  padding: var(--asm-space-2);
+  background: var(--bc-bg);
+  border: var(--asm-border-hairline) solid var(--bc-grid-line);
+  border-radius: var(--bc-border-radius-sm);
+  color: var(--bc-text);
+  font-size: var(--asm-font-size-sm);
+  font-weight: var(--asm-font-weight-500);
+  cursor: pointer;
+  transition: var(--asm-transition-fade);
+}
+
+.bc-jump-month-btn:hover {
+  background: var(--bc-grid-line);
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-month-btn:focus {
+  outline: none;
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-month-btn.bc-jump-selected {
+  background: var(--asm-color-primary-500);
+  color: var(--asm-color-primary-0);
+  border-color: var(--asm-color-primary-500);
+}
+
+.bc-jump-calendar {
+  border: var(--asm-border-hairline) solid var(--bc-grid-line);
+  border-radius: var(--bc-border-radius-sm);
+  overflow: hidden;
+}
+
+.bc-jump-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: var(--bc-bg);
+  border-bottom: var(--asm-border-hairline) solid var(--bc-grid-line);
+}
+
+.bc-jump-weekday {
+  padding: var(--asm-space-2);
+  text-align: center;
+  font-size: var(--asm-font-size-xs);
+  font-weight: var(--asm-font-weight-600);
+  color: var(--bc-muted);
+  text-transform: uppercase;
+}
+
+.bc-jump-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: var(--bc-surface);
+}
+
+.bc-jump-day {
+  aspect-ratio: 1;
+  padding: var(--asm-space-2);
+  background: transparent;
+  border: none;
+  border-right: var(--asm-border-hairline) solid var(--bc-grid-line);
+  border-bottom: var(--asm-border-hairline) solid var(--bc-grid-line);
+  color: var(--bc-text);
+  font-size: var(--asm-font-size-sm);
+  cursor: pointer;
+  transition: var(--asm-transition-fade);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bc-jump-day:nth-child(7n) {
+  border-right: none;
+}
+
+.bc-jump-day:hover {
+  background: var(--bc-grid-line);
+}
+
+.bc-jump-day:focus {
+  outline: none;
+  background: var(--bc-grid-line);
+  box-shadow: inset 0 0 0 var(--asm-border-thin) var(--asm-color-primary-500);
+}
+
+.bc-jump-day-muted {
+  color: var(--bc-muted);
+  opacity: 0.5;
+}
+
+.bc-jump-day-today {
+  font-weight: var(--asm-font-weight-700);
+  color: var(--asm-color-primary-500);
+}
+
+.bc-jump-day-selected {
+  background: var(--asm-color-primary-500);
+  color: var(--asm-color-primary-0);
+  font-weight: var(--asm-font-weight-600);
+}
+
+.bc-jump-day-selected:hover {
+  background: var(--asm-color-primary-600);
+}
+
+.current-date-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--asm-transition-fade);
+}
+
+.current-date-btn:hover {
+  color: var(--asm-color-primary-500);
+}
+
+.current-date-btn:focus {
+  outline: none;
+  color: var(--asm-color-primary-500);
+}
+
+@media (max-width: 479px) {
+  .bc-jump-modal {
+    max-width: 100%;
+  }
+
+  .bc-jump-month-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bc-jump-year-input {
+    width: 80px;
+    font-size: var(--asm-font-size-md);
+  }
+
+  .bc-jump-calendar {
+    max-height: calc(100dvh - 300px);
+    overflow-y: auto;
+  }
 }

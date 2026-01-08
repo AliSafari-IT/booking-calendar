@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-labelledby="bookingCalendarLogoTitle">
+  <title id="bookingCalendarLogoTitle">Booking Calendar</title>
+  <defs>
+    <style>
+      .calendar-card {
+        fill: #FFFFFF;
+        stroke: #D1D5DB;
+        stroke-width: 2;
+      }
+      .calendar-header {
+        fill: #3A5AFE;
+      }
+      .calendar-slot {
+        fill: #E0E7FF;
+        stroke: #A5B4FC;
+        stroke-width: 1;
+      }
+      .calendar-slot-filled {
+        fill: #3A5AFE;
+      }
+      .checkmark {
+        fill: none;
+        stroke: #16A34A;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .text-logo {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        fill: #111827;
+        letter-spacing: -0.01em;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="calendar-card" x="8" y="12" width="48" height="56" rx="10" />
+    <rect class="calendar-header" x="8" y="12" width="48" height="14" rx="10" />
+    <circle cx="16" cy="18" r="2" fill="#FFFFFF" />
+    <circle cx="28" cy="18" r="2" fill="#FFFFFF" />
+    <circle cx="40" cy="18" r="2" fill="#FFFFFF" />
+    <rect class="calendar-slot" x="12" y="30" width="10" height="10" rx="6" />
+    <rect class="calendar-slot" x="26" y="30" width="10" height="10" rx="6" />
+    <rect class="calendar-slot-filled" x="40" y="30" width="10" height="10" rx="6" />
+    <path class="checkmark" d="M42 36 l2 2 4 -5" />
+    <rect class="calendar-slot" x="12" y="44" width="10" height="10" rx="6" />
+    <rect class="calendar-slot-filled" x="26" y="44" width="10" height="10" rx="6" />
+    <rect class="calendar-slot" x="40" y="44" width="10" height="10" rx="6" />
+  </g>
+  <text class="text-logo" x="72" y="52">Booking</text>
+</svg>

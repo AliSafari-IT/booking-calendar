@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
     plugins: [react()],
+    base: '/booking-calendar/',
     resolve: {
         alias: {
             '@': resolve(__dirname, './src'),

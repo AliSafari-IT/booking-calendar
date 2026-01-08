@@ -1,6 +1,7 @@
 // Main components
 export { default as BookingCalendar } from './BookingCalendar';
 export { default as BookingModal } from './BookingModal';
+export { default as JumpToDateModal } from './JumpToDateModal';
 
 // View components
 export { default as MonthView } from './MonthView';
@@ -20,6 +21,7 @@ export { useDragInteractions } from './hooks/useDragInteractions';
 export * from './types';
 
 // Styles (CSS will be imported by consumers)
+import '@asafarim/design-tokens/css';
 import './styles/calendar.css';
 import './styles/grid.css';
 import './styles/modal.css';

@@ -4,6 +4,7 @@ import MonthView from "./MonthView";
 import WeekView from "./WeekView";
 import DayView from "./DayView";
 import BookingModal from "./BookingModal";
+import JumpToDateModal from "./JumpToDateModal";
 import "./styles/calendar.css";
 
 export default function BookingCalendar({
@@ -22,6 +23,7 @@ export default function BookingCalendar({
     null
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isJumpOpen, setIsJumpOpen] = useState(false);
   const [newBookingSlot, setNewBookingSlot] = useState<{
     start: Date;
     end: Date;
@@ -73,42 +75,53 @@ export default function BookingCalendar({
     setCurrentDate(new Date());
   };
 
+  const handleJumpToDate = (date: Date) => {
+    setCurrentDate(date);
+  };
+
   return (
     <div className={`booking-calendar ${className}`}>
       <div className="booking-calendar-header">
         <div className="booking-calendar-nav">
-          <button onClick={handlePrevious} className="nav-btn">
+          <button onClick={handlePrevious} className="nav-btn" aria-label="Previous">
             ←
           </button>
           <button onClick={handleToday} className="nav-btn">
             Today
           </button>
-          <button onClick={handleNext} className="nav-btn">
+          <button onClick={handleNext} className="nav-btn" aria-label="Next">
             →
           </button>
-          <h2 className="current-date">
-            {currentDate.toLocaleDateString("en-US", {
-              month: "long",
-              year: "numeric",
-            })}
-          </h2>
         </div>
+        <button 
+          className="current-date current-date-btn" 
+          onClick={() => setIsJumpOpen(true)}
+          aria-label="Jump to date"
+        >
+          {currentDate.toLocaleDateString("en-US", {
+            month: "long",
+            year: "numeric",
+          })}
+        </button>
         <div className="booking-calendar-view-switcher">
           <button
             onClick={() => setView("month")}
             className={view === "month" ? "active" : ""}
+            aria-label="Month view"
           >
             Month
           </button>
           <button
             onClick={() => setView("week")}
             className={view === "week" ? "active" : ""}
+            aria-label="Week view"
           >
             Week
           </button>
           <button
             onClick={() => setView("day")}
             className={view === "day" ? "active" : ""}
+            aria-label="Day view"
           >
             Day
           </button>
@@ -151,6 +164,15 @@ export default function BookingCalendar({
           onUpdate={onUpdateBooking}
           onDelete={onDeleteBooking}
           onSendConfirmation={onSendConfirmation}
+        />
+      )}
+
+      {isJumpOpen && (
+        <JumpToDateModal
+          isOpen={isJumpOpen}
+          currentDate={currentDate}
+          onClose={() => setIsJumpOpen(false)}
+          onSelect={handleJumpToDate}
         />
       )}
     </div>
