@@ -24,7 +24,8 @@
         "predemo": "pnpm install && pnpm run build",
         "demo": "cd demo && pnpm run dev",
         "deploy-demo": "cd demo && pnpm run deploy",
-        "deploy": "pnpm run predemo && cd demo && pnpm run deploy-demo"
+        "deploy": "pnpm run predemo && cd demo && pnpm run deploy-demo",
+        "release": "pnpm run build && node ./scripts/release.js"
     },
     "peerDependencies": {
         "react": "^18.0.0",
